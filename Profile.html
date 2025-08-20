@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Reset</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-container label {
+      font-size: 14px;
+      display: block;
+      margin-top: 10px;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .form-container button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background: #45a049;
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Reset Password</h2>
+    <form id="resetForm">
+      <label for="newPassword">New Password:</label>
+      <input type="password" id="newPassword" name="newPassword" required>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <div class="error" id="errorMsg">Passwords do not match!</div>
+
+      <button type="submit">Reset Password</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("resetForm");
+    const newPassword = document.getElementById("newPassword");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function(e) {
+      if (newPassword.value !== confirmPassword.value) {
+        e.preventDefault(); // Hana form ta tura
+        errorMsg.style.display = "block";
+      } else {
+        errorMsg.style.display = "none";
+        alert("Password successfully reset!");
+      }
+    });
+  </script>
+
+</body>
+</html>
