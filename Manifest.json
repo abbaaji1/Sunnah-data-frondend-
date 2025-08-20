@@ -1,0 +1,16 @@
+{
+  "name": "Sunnah Data Sub",
+  "short_name": "SunnahData",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd",
+  "description": "Siyan data cikin sauƙi da arha",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
