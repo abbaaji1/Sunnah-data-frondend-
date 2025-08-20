@@ -1,4 +1,4 @@
-const CACHE_NAME = "arewa-vtu-cache-v1";
+const CACHE_NAME = "Sunnah-Data-cache-v1";
 const urlsToCache = [
 "/",
 "/index.html",
