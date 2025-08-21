@@ -1,37 +1,10 @@
 // main.js
-
-// === API FUNCTIONS === //
-async function buyData(phone, plan) {
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000); // 10s timeout
-
-    let response = await fetch("https://backend-vtu-api.com/buy", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone, plan }),
-      signal: controller.signal,
-    });
-
-    clearTimeout(timeout);
-
-    if (!response.ok) {
-      throw new Error("❌ Matsala daga server");
-    }
-
-    let data = await response.json();
-    return { success: true, data };
-
-  } catch (error) {
-    console.error("Buy Data Error:", error);
-    return { success: false, message: error.message || "⚠️ Matsala wajen haɗin internet" };
-  }
-}
+import { postData } from "./js/api.js";
 
 // === EVENT LISTENERS (DOM) === //
 document.addEventListener("DOMContentLoaded", () => {
-  // Example: Handle buy data form
-  const buyForm = document.getElementById("buyForm");
+  // === BUY DATA FORM === //
+  const buyForm = document.getElementById("purchaseForm");
   if (buyForm) {
     buyForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -39,18 +12,57 @@ document.addEventListener("DOMContentLoaded", () => {
       const phone = document.getElementById("phone").value;
       const plan = document.getElementById("plan").value;
 
-      let result = await buyData(phone, plan);
-
-      const resultBox = document.getElementById("resultBox");
-      if (result.success) {
-        resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result.data)}</p>`;
-      } else {
-        resultBox.innerHTML = `<p class="text-danger">${result.message}</p>`;
+      try {
+        const result = await postData("buy-data", { phone, plan });
+        const resultBox = document.getElementById("result");
+        resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result)}</p>`;
+      } catch (error) {
+        const resultBox = document.getElementById("result");
+        resultBox.innerHTML = `<p class="text-danger">❌ ${error.message}</p>`;
       }
     });
   }
 
-  // Example: Handle reset password
+  // === LOGIN FORM === //
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      try {
+        const result = await postData("login", { email, password });
+        console.log("Login success:", result);
+        alert("✅ Login successful!");
+      } catch (error) {
+        alert("❌ Login failed: " + error.message);
+      }
+    });
+  }
+
+  // === SIGNUP FORM === //
+  const signupForm = document.getElementById("signupForm");
+  if (signupForm) {
+    signupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+
+      try {
+        const result = await postData("signup", { name, email, password });
+        console.log("Signup success:", result);
+        alert("✅ Signup successful!");
+      } catch (error) {
+        alert("❌ Signup failed: " + error.message);
+      }
+    });
+  }
+
+  // === RESET PASSWORD FORM === //
   const resetForm = document.getElementById("resetForm");
   if (resetForm) {
     resetForm.addEventListener("submit", (e) => {
