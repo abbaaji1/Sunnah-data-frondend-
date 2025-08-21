@@ -1,139 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sunnah Data Sub</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <title>Sunnah Data Sub</title>  
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Sunnah Data Sub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#buydata">Buy Data</a></li>
-          <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="#signup">Signup</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Bootstrap CSS -->  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">  
 
-  <!-- Hero Section -->
-  <section class="py-5 text-center bg-light">
-    <div class="container">
-      <h1 class="fw-bold text-primary">Sunnah Data Sub</h1>
-      <p class="lead">Siyan data cikin sauƙi da arha</p>
-      <a href="#buydata" class="btn btn-success btn-lg">Buy Data Now</a>
-    </div>
-  </section>
+  <!-- Favicon -->  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">  
 
-  <!-- Buy Data Form -->
-  <section id="buydata" class="container py-5">
-    <h2 class="text-center mb-4 text-primary fw-bold">Buy Data</h2>
-    <div class="card p-4 shadow-sm border-0 rounded-4">
-      <form id="purchaseForm">
-        
-        <!-- Network -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Network</label>
-          <select class="form-select" id="network" required>
-            <option value="">-- Select Network --</option>
-            <option value="mtn">MTN</option>
-            <option value="glo">GLO</option>
-            <option value="airtel">AIRTEL</option>
-            <option value="etisalat">9Mobile</option>
-          </select>
-        </div>
+  <!-- Web App Manifest -->  
+  <link rel="manifest" href="manifest.json">  
 
-        <!-- Data Plan -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Data Plan</label>
-          <select class="form-select" id="plan" required>
-            <option value="">-- Select Data Plan --</option>
-            <option value="1gb">1GB - ₦300</option>
-            <option value="2gb">2GB - ₦500</option>
-            <option value="5gb">5GB - ₦1200</option>
-          </select>
-        </div>
+  <!-- Meta for PWA -->  
+  <meta name="theme-color" content="#0d6efd">  
+</head>  
+<body class="bg-light">  
 
-        <!-- Phone Number -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Phone Number</label>
-          <input type="tel" class="form-control" id="phone" placeholder="0701..." required>
-        </div>
+  <!-- Navbar -->  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">  
+    <div class="container">  
+      <a class="navbar-brand fw-bold" href="#">Sunnah Data Sub</a>  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">  
+        <span class="navbar-toggler-icon"></span>  
+      </button>  
+      <div class="collapse navbar-collapse" id="navbarNav">  
+        <ul class="navbar-nav ms-auto">  
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>  
+          <li class="nav-item"><a class="nav-link" href="#buydata">Buy Data</a></li>  
+          <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>  
+          <li class="nav-item"><a class="nav-link" href="#signup">Signup</a></li>  
+        </ul>  
+      </div>  
+    </div>  
+  </nav>  
 
-        <!-- Amount -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">Amount</label>
-          <input type="number" class="form-control" id="amount" placeholder="500" required>
-        </div>
+  <!-- Hero Section -->  
+  <section class="py-5 text-center bg-light">  
+    <div class="container">  
+      <h1 class="fw-bold text-primary">Sunnah Data Sub</h1>  
+      <p class="lead">Siyan data cikin sauƙi da arha</p>  
+      <a href="#buydata" class="btn btn-success btn-lg">Buy Data Now</a>  
+    </div>  
+  </section>  
 
-        <button type="submit" class="btn btn-success w-100">Submit</button>
-      </form>
+  <!-- Buy Data Form -->  
+  <section id="buydata" class="container py-5">  
+    <h2 class="text-center mb-4 text-primary fw-bold">Buy Data</h2>  
+    <div class="card p-4 shadow-sm border-0 rounded-4">  
+      <form id="purchaseForm">  
+        <!-- Network -->  
+        <div class="mb-3">  
+          <label class="form-label fw-semibold">Network</label>  
+          <select class="form-select" id="network" required>  
+            <option value="">-- Select Network --</option>  
+            <option value="mtn">MTN</option>  
+            <option value="glo">GLO</option>  
+            <option value="airtel">AIRTEL</option>  
+            <option value="etisalat">9Mobile</option>  
+          </select>  
+        </div>  
 
-      <!-- Result -->
-      <div id="result" class="mt-4"></div>
-    </div>
-  </section>
+        <!-- Data Plan -->  
+        <div class="mb-3">  
+          <label class="form-label fw-semibold">Data Plan</label>  
+          <select class="form-select" id="plan" required>  
+            <option value="">-- Select Data Plan --</option>  
+            <option value="1gb">1GB - ₦300</option>  
+            <option value="2gb">2GB - ₦500</option>  
+            <option value="5gb">5GB - ₦1200</option>  
+          </select>  
+        </div>  
 
-  <!-- Login Section -->
-  <section id="login" class="container py-5">
-    <h2 class="text-center text-primary fw-bold mb-4">Login</h2>
-    <div class="card p-4 shadow-sm border-0 rounded-4">
-      <form id="loginForm">
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" id="loginEmail" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-control" id="loginPassword" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-      </form>
-    </div>
-  </section>
+        <!-- Phone Number -->  
+        <div class="mb-3">  
+          <label class="form-label fw-semibold">Phone Number</label>  
+          <input type="tel" class="form-control" id="phone" placeholder="0701..." required>  
+        </div>  
 
-  <!-- Signup Section -->
-  <section id="signup" class="container py-5">
-    <h2 class="text-center text-primary fw-bold mb-4">Signup</h2>
-    <div class="card p-4 shadow-sm border-0 rounded-4">
-      <form id="signupForm">
-        <div class="mb-3">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="signupName" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" id="signupEmail" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-control" id="signupPassword" required>
-        </div>
-        <button type="submit" class="btn btn-success w-100">Signup</button>
-      </form>
-    </div>
-  </section>
+        <!-- Amount -->  
+        <div class="mb-3">  
+          <label class="form-label fw-semibold">Amount</label>  
+          <input type="number" class="form-control" id="amount" placeholder="500" required>  
+        </div>  
 
-  <!-- Footer -->
-  <footer class="bg-primary text-white text-center py-3 mt-5">
-    <p class="mb-0">&copy; 2025 Sunnah Data Sub. All Rights Reserved.</p>
-  </footer>
+        <button type="submit" class="btn btn-success w-100">Submit</button>  
+      </form>  
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Your scripts -->
-  <script src="config.js"></script>
-  <script src="main.js"></script>
-</body>
+      <!-- Result -->  
+      <div id="result" class="mt-4"></div>  
+    </div>  
+  </section>  
+
+  <!-- Login Section -->  
+  <section id="login" class="container py-5">  
+    <h2 class="text-center text-primary fw-bold mb-4">Login</h2>  
+    <div class="card p-4 shadow-sm border-0 rounded-4">  
+      <form id="loginForm">  
+        <div class="mb-3">  
+          <label class="form-label">Email</label>  
+          <input type="email" class="form-control" id="loginEmail" required>  
+        </div>  
+        <div class="mb-3">  
+          <label class="form-label">Password</label>  
+          <input type="password" class="form-control" id="loginPassword" required>  
+        </div>  
+        <button type="submit" class="btn btn-primary w-100">Login</button>  
+      </form>  
+    </div>  
+  </section>  
+
+  <!-- Signup Section -->  
+  <section id="signup" class="container py-5">  
+    <h2 class="text-center text-primary fw-bold mb-4">Signup</h2>  
+    <div class="card p-4 shadow-sm border-0 rounded-4">  
+      <form id="signupForm">  
+        <div class="mb-3">  
+          <label class="form-label">Full Name</label>  
+          <input type="text" class="form-control" id="signupName" required>  
+        </div>  
+        <div class="mb-3">  
+          <label class="form-label">Email</label>  
+          <input type="email" class="form-control" id="signupEmail" required>  
+        </div>  
+        <div class="mb-3">  
+          <label class="form-label">Password</label>  
+          <input type="password" class="form-control" id="signupPassword" required>  
+        </div>  
+        <button type="submit" class="btn btn-success w-100">Signup</button>  
+      </form>  
+    </div>  
+  </section>  
+
+  <!-- Footer -->  
+  <footer class="bg-primary text-white text-center py-3 mt-5">  
+    <p class="mb-0">&copy; 2025 Sunnah Data Sub. All Rights Reserved.</p>  
+  </footer>  
+
+  <!-- Bootstrap JS -->  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+
+  <!-- Your scripts -->  
+  <script src="config.js"></script>  
+  <script src="main.js"></script>  
+
+  <!-- Register Service Worker -->  
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then(reg => console.log("✅ Service Worker registered", reg))
+        .catch(err => console.error("❌ Service Worker failed:", err));
+    }
+  </script>
+</body>  
 </html>
