@@ -3,7 +3,7 @@ import axios from "axios";
 
 // asalin URL na backend
 const API = axios.create({
-  baseURL: "https://sunna-datasub-backend.com/api",
+  baseURL: "https://sunnah-data-backend.onrender.com/api",
   headers: { "Content-Type": "application/json" },
 });
 
