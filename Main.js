@@ -13,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const plan = document.getElementById("plan").value;
 
       try {
-        const result = await postData("buy-data", { phone, plan });
-        const resultBox = document.getElementById("result");
-        resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result)}</p>`;
-      } catch (error) {
-        const resultBox = document.getElementById("result");
-        resultBox.innerHTML = `<p class="text-danger">❌ ${error.message}</p>`;
+  const result = await postData("buy-data", { phone, plan });
+  console.log("Response daga backend:", result); // <-- ANAN
+  const resultBox = document.getElementById("result");
+  resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result)}</p>`;
+} catch (error) {
+  const resultBox = document.getElementById("result");
+  resultBox.innerHTML = `<p class="text-danger">❌ ${error.message}</p>`;
       }
     });
   }
