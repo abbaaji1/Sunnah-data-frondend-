@@ -9,17 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
     buyForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const phone = document.getElementById("phone").value;
-      const plan = document.getElementById("plan").value;
-
       try {
-  const result = await postData("buy-data", { phone, plan });
-  console.log("Response daga backend:", result); // <-- ANAN
-  const resultBox = document.getElementById("result");
-  resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result)}</p>`;
-} catch (error) {
-  const resultBox = document.getElementById("result");
-  resultBox.innerHTML = `<p class="text-danger">❌ ${error.message}</p>`;
+        const phone = document.getElementById("phone").value;
+        const plan = document.getElementById("plan").value;
+        const network = document.getElementById("network").value;
+        const amount = document.getElementById("amount").value;
+
+        const result = await postData("buy-data", { phone, plan, network, amount });
+        console.log("Response daga backend:", result); // <-- LOG
+
+        const resultBox = document.getElementById("result");
+        resultBox.innerHTML = `<p class="text-success">✅ Data saye: ${JSON.stringify(result)}</p>`;
+      } catch (error) {
+        const resultBox = document.getElementById("result");
+        resultBox.innerHTML = `<p class="text-danger">❌ ${error.message}</p>`;
       }
     });
   }
